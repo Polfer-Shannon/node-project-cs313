@@ -1,6 +1,6 @@
-var express = require("express");
+const express = require("express");
 const path = require('path');
-var app = express();
+const app = express();
 
 const { Pool } = require('pg');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -13,6 +13,7 @@ const pool = new Pool({connectionString: connectionString});
 
 app.set("port", (process.env.PORT || 5000));
 
+app.get('/getPerson', getPerson);
 
 app.listen(app.get("port"), function(){
     console.log("listening ", app.get("port"));
@@ -56,21 +57,4 @@ function getPersonFromDb(id, callback) {
       
       callback(null, result.rows);
    });
-}
-function getParentsFromDb(id, callback){
-    var sql = "SELECT parent_id FROM relationship WHERE child_id = $1::int";
-    var params = [id];
-    pool.query(sql, params, function(err, result){
-        if(err){ console.log(err); }
-        callback(null, result.rows);
-    });
-}
-
-function getChildrenFromDb(id, callback){
-    var sql = "SELECT child_id FROM relationship WHERE parent_id = $1::int";
-    var params = [id];
-    pool.query(sql, params, function(err, result){
-        if(err){ console.log(err); }
-        callback(null, result.rows);
-    });
 }
