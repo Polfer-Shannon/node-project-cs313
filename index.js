@@ -13,22 +13,22 @@ const pool = new Pool({connectionString: connectionString});
 
 app.set("port", (process.env.PORT || 5000));
 
-app.get('/getPerson', getPerson);
+app.get('/getSong', getSong);
 
 app.listen(app.get("port"), function(){
     console.log("listening ", app.get("port"));
 })
 
-function getPerson(req, res) {
-   console.log("Getting person information.");
+function getSong(req, res) {
+   console.log("Getting song information.");
    
    //re.params in a RESTful way and works with :id
    //var id = req.params.id;
    var id = req.query.id;
-   console.log("Retrieving person with id: ", id);
+   console.log("Retrieving song with id: ", id);
    
-   getPersonFromDb(id, function(error, result) {
-     console.log("Back from the getPersonFromBb function: ", result); 
+   getSongFromDb(id, function(error, result) {
+     console.log("Back from the getSongFromDb function: ", result); 
      
      
      //Apparently we wouldn't really do the errors this way...
@@ -41,10 +41,10 @@ function getPerson(req, res) {
    });
 }
 
-function getPersonFromDb(id, callback) {
-   console.log("getPersonFromDb called with id ", id);
+function getSongFromDb(id, callback) {
+   console.log("getSongFromDb called with id ", id);
    
-   var sql = "SELECT id, first_name, last_name, birthdate From person WHERE ID = $1::int";
+   var sql = "SELECT title, song_writer, tempo, root_key, v_lyrics From songs JOIN verses ON songs.id = verses.songs_id WHERE songs.id = $1::int";
    var params = [id];
    
    pool.query(sql, params, function(err, result) {
