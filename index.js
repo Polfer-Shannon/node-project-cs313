@@ -15,6 +15,12 @@ app.set("port", (process.env.PORT || 5000));
 
 app.get('/getSong', getSong);
 
+app.get('/getVerse/:id', function(req,res){
+    getVerseFromDb(req.params.id, function(err, result){
+        res.status(200).json(result);
+    })
+  })
+
 app.listen(app.get("port"), function(){
     console.log("listening ", app.get("port"));
 })
@@ -28,7 +34,7 @@ function getSong(req, res) {
    console.log("Retrieving song with id: ", id);
    
    getSongFromDb(id, function(error, result) {
-     console.log("Back from the getSongFromDb function: ", result); 
+     console.log("Back from the getSongFromBb function: ", result); 
      
      
      //Apparently we wouldn't really do the errors this way...
@@ -44,7 +50,7 @@ function getSong(req, res) {
 function getSongFromDb(id, callback) {
    console.log("getSongFromDb called with id ", id);
    
-   var sql = "SELECT title, song_writer, tempo, root_key, v_lyrics From songs JOIN verses ON songs.id = verses.songs_id WHERE songs.id = $1::int";
+   var sql = "SELECT id, title, song_writer, tempo, root_key From songs WHERE songs.id = $1::int";
    var params = [id];
    
    pool.query(sql, params, function(err, result) {
@@ -57,4 +63,13 @@ function getSongFromDb(id, callback) {
       
       callback(null, result.rows);
    });
+}
+
+function getVerseFromDb(id, callback){
+    var sql = "SELECT id, v_lyrics, v_number FROM verses WHERE songs_id = $1::int";
+    var params = [id];
+    pool.query(sql, params, function(err, result){
+        if(err){ console.log(err); }
+        callback(null, result.rows);
+    });
 }

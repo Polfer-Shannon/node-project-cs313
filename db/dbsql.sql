@@ -41,6 +41,14 @@ chorus_id INT REFERENCES chorus(id),
 bridge_id INT REFERENCES bridge(id)
 );
 
+CREATE TABLE reference (
+id SERIAL PRIMARY KEY,
+songs_id INT REFERENCES songs(id),
+verse_id INT REFERENCES verses(id),
+chorus_id INT REFERENCES chorus(id),
+bridge_id INT REFERENCES bridge(id)
+);
+
 INSERT INTO songs (title, song_writer, tempo, root_key)
 VALUES ('Boogie Woogie Bugle Boy', 'Don Raye', '4/4', 'D');
 
@@ -74,5 +82,12 @@ Hes the boogie woogie bugle boy of Company B', 1);
 INSERT INTO chords (chord_1, chord_2, chord_3, chord_4, chord_5, chord_6, chord_7, songs_id, verse_id)
 VALUES ('D', 'Em', 'F#m', 'G', 'A', 'Bm', 'c#dim', 1, 1);
 
-SELECT title, song_writer, tempo, root_key, v_lyrics From songs JOIN verses ON songs.id = verses.songs_id 
-WHERE songs.id = 1;
+SELECT songs.id, title, v_lyrics, v_number From songs JOIN verses ON songs.id = verses.songs_id WHERE songs.id = 1;
+
+ var sql = "SELECT title, song_writer, tempo, root_key, v_lyrics From songs JOIN verses ON songs.id = verses.songs_id WHERE songs.id = $1::int";
+
+INSERT INTO reference (songs_id, verse_id)
+VALUES (1, 1),
+(1, 2);
+
+SELECT * From songs JOIN verses ON songs.id = verses.songs_id WHERE songs.id = 1;

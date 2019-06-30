@@ -2,47 +2,78 @@
 <html>
     <head>
         <title>SONG</title>
-      <meta charset="UTF-8">
-      <meta name ="author" content="Wendi Van Sickle">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta name ="author" content="Shannon Polfer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
     </head>
+
     <body>
-        <form id="song-form">
-            <input type="number" id="song_id">
-            <button type="submit">Get Details</button>
-        </form>
-        
-        <table class="table">
-            <tr>
-                <td>Song Title</td>
-                <td id="title"></td>
-            </tr>
-            <tr>
-                <td>Song Writer</td>
-                <td id="writer"></td>
-            </tr>
-            <tr>
-                <td>tempo</td>
-                <td id="tempo"></td>
-            </tr>
-            <tr>
-                <td>Key</td>
-                <td id="key"></td>
-            </tr>
-        </table>
-        
-        <button id="getParents">Get Parents</button>
-        <div id="parents"></div>
-        
-        <button id="getChildren">Get Children</button>
-        <div id="children"></div>
-        
+        <header>
+            <h1>Write Songs Like a Pro</h1>
+            <p>Imitation is the Highest Form of Flattery</p>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <table class="table">
+                        <thead>
+                           Inspiration Songs
+                        </thead>
+                        <tr>
+                            <td>Song Title</td>
+                            <td>Song ID#</td>
+                        </tr>
+                        <tr>
+                            <td>Boogie Woogie Bugle Boy</td>
+                            <td> 1 </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-5">
+                     <form id="song-form">
+                     <input type="number" id="song_id">
+                    <button type="submit">Enter Song ID#</button>
+                    </form>
+
+                    <table class="table">
+                        <tr>
+                            <td>Song Title</td>
+                            <td id="title"></td>
+                        </tr>
+                        <tr>
+                            <td>Song Writer</td>
+                            <td id="song_writer"></td>
+                        </tr>
+                        <tr>
+                            <td>tempo</td>
+                            <td id="tempo"></td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td id="root_key"></td>
+                        </tr>
+                    </table>
+
+                    <button id="getVerse">Verse 1</button>
+                    <div id="verse1"></div>
+
+                    <button id="getChorus">Verse 2</button>
+                    <div id="verse2"></div>
+                </div>
+                <div class="col-md-5">
+                    <form id="song-form">
+                     <input type="number" id="song_id">
+                    <button type="submit">Get Details</button>
+                    </form>
+                </div>
+            </div>
+        </div>
         <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-        <script src="person.js"></script>
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script src="lyrics.js"></script>
     </body>
 </html>
