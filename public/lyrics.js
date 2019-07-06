@@ -10,9 +10,7 @@ $(document).ready(function(){
                     $("#tempo").text(data.tempo);
                     $("#root_key").text(data.root_key);
             
-                    //alert(data.firstname);
-                
-                   //alert(JSON.stringify(data));
+
                 }, 'json'
         );
     });
@@ -38,42 +36,13 @@ $(document).ready(function(){
                     
                     $("#verse1").append(message);
                     
-                    //$("#parents").html(JSON.stringify(data));
+                   
                 }, 'json'
             );
     });
     
     
-//    $("#getChildren").on("click", function(){
-//        const person_id =  $("#person_id").val();
-//        $.get('/getChildren/' + person_id, {
-//                   
-//                } , function(data){
-//                    const children = data;
-//                    for(var i=0; i<children.length; i++){
-//                        var person_id = children[i].person_id;
-//                       
-//                        
-//                        $.get('/getPerson?id=' + person_id, {
-//                   
-//                                } , function(data){
-//                                    $("#children").append("<p>" + data.firstname + " " + data.lastname +  "</p>");
-//
-//                                    //alert(data.firstname);
-//
-//                                   //alert(JSON.stringify(data));
-//                                }, 'json'
-//                        );
-//                        
-//                        
-//                        
-//                        //alert(JSON.stringify(parents[i]));
-//                    }
-//                    
-//                    //$("#parents").html(JSON.stringify(data));
-//                }, 'json'
-//            );
-//    });
+
 });
 
 
