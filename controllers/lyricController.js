@@ -28,8 +28,28 @@ function getVerse(req,res){
     })
   }
 
+function getVerseByNumber(req, res) {
+	// TODO: check if book id or if topic id, and call the appropriate function...
+
+	var theVerse = req.query.theVerse;
+
+	lyricModel.verseByNumber(theVerse, function(error, results) {
+		res.json(results);
+	});
+
+
+}
+
+function getChorus(req,res){
+    lyricModel.getChorusFromDb(req.params.id, function(err, result){
+        res.status(200).json(result);
+    })
+  }
+
 module.exports = {
     getSong: getSong,
-    getVerse
+    getVerse: getVerse,
+    getVerseByNumber: getVerseByNumber,
+    getChorus: getChorus
     
 };

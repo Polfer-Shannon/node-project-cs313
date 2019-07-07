@@ -9,3 +9,25 @@ header {
 #verse1 {
     padding-right: 2rem;
 }
+
+.mybtn {
+background-color: #948c75;
+border: #948c75;
+}
+
+.mybtn:hover {
+    background-color: #d9ceb2;
+}
+
+.mybtn:active {
+    background-color: #d9ceb2;
+}
+
+.mybtn:visited {
+    background-color: #d9ceb2;
+}
+
+h2 {
+    text-align: center;
+}
+

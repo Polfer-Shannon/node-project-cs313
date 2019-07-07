@@ -19,8 +19,9 @@ app.set('view engine', 'ejs');
 
 
 app.get('/getSong', lyricController.getSong);
-
 app.get('/getVerse/:id', lyricController.getVerse);
+app.get('/getVerseByNumber', lyricController.getVerseByNumber);
+app.get('/getChorus/:id', lyricController.getChorus);
 
 app.listen(app.get("port"), function(){
     console.log("listening ", app.get("port"));

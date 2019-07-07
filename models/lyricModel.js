@@ -32,7 +32,46 @@ function getVerseFromDb(id, callback){
     });
 }
 
+function verseByNumber(theVerse, callback) {
+	console.log("Searching the DB for verse: " + theVerse)
+
+	var sql = "SELECT v_lyrics FROM verses WHERE v_number=$1::int";
+	var params = [theVerse];
+
+	pool.query(sql, params, function(err, db_results) {
+
+		if (err) {
+			throw err;
+		} else {
+			// We got some successful results from the DB
+//			 console.log("Back from the DB with: ")
+//			 console.log(db_results);
+
+			var results = {
+					success:true,
+					list:db_results.rows
+				};
+
+			callback(null, results);			
+		}
+
+	});
+
+}
+
+function getChorusFromDb(id, callback){
+    var sql = "SELECT id, c_lyrics FROM chorus WHERE songs_id = $1::int";
+    var params = [id];
+    pool.query(sql, params, function(err, result){
+        if(err){ console.log(err); }
+        callback(null, result.rows);
+    });
+}
+
+
 module.exports = {
     getSongFromDb: getSongFromDb,
-    getVerseFromDb: getVerseFromDb
+    getVerseFromDb: getVerseFromDb,
+    verseByNumber: verseByNumber,
+    getChorusFromDb: getChorusFromDb
 }

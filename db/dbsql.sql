@@ -91,3 +91,6 @@ VALUES (1, 1),
 (1, 2);
 
 SELECT * From songs JOIN verses ON songs.id = verses.songs_id WHERE songs.id = 1;
+
+
+SELECT v_lyrics FROM verses WHERE v_number = 2 AND songs_id = 1;

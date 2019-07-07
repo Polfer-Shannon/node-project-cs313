@@ -15,26 +15,24 @@ $(document).ready(function(){
         );
     });
 
-    $("#getVerse").on("click", function(){
+    $("#getChorus").on("click", function(){
    
         const song_id =  $("#song_id").val();
-        $.get('/getVerse/' + song_id, {
+        $.get('/getChorus/' + song_id, {
                    
                 } , function(data){
-                    const verse = data;
+                    const chorus = data;
                     
                     console.log(data);
                    var message = ""; 
-                    for(var i=0; i<verse.length; i++){
+                    for(var i=0; i<chorus.length; i++){
                         
                         
-                        message += '<p>' + verse[i].v_number + '</p>';
-                        message += '<p>' + verse[i].v_lyrics + '</p>';
-                            
+                        message += '<p>' + chorus[i].c_lyrics + '</p>';
 
                     }
                     
-                    $("#verse1").append(message);
+                    $("#chorus").append(message);
                     
                    
                 }, 'json'
@@ -46,4 +44,23 @@ $(document).ready(function(){
 });
 
 
+
+function getTheVerse() {
+	console.log("Searching for verse...");
+
+	var theVerse = $("#theVerse").val();
+	console.log("The Verse: " + theVerse);
+
+	$.get("/getVerseByNumber", {theVerse:theVerse}, function(data) {
+		console.log("Back from the server with:");
+		console.log(data);
+
+		for (var i = 0; i < data.list.length; i++) {
+			var verse = data.list[i];
+
+			$("#verse").append("<li>" + verse.v_lyrics + "</li>");
+		}
+
+	})
+}
 

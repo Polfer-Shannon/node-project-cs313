@@ -14,12 +14,13 @@
             <h1>Write Songs Like a Pro</h1>
             <p>Imitation is the Highest Form of Flattery</p>
         </header>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-2">
                     <table class="table">
                         <thead>
-                           Inspiration Songs
+                            Inspiration Songs
                         </thead>
                         <tr>
                             <td>Song Title</td>
@@ -31,10 +32,12 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-md-5">
-                     <form id="song-form">
-                     <input type="number" id="song_id">
-                    <button type="submit">Enter Song ID#</button>
+
+                <div class="col-md-3">
+                    <form id="song-form">
+                        <h2>Inspiration Song</h2>
+                        <input class="input-group" type="number" id="song_id" placeholder="Enter Song ID#">
+                        <button class="input-group btn btn-primary mybtn" type="submit">Get Song Info</button>
                     </form>
 
                     <table class="table">
@@ -56,20 +59,70 @@
                         </tr>
                     </table>
 
-                    <button id="getVerse">Verses</button>
-                    <div id="verse1"></div>
-
-<!--                    <button id="getChorus">Chorus</button>
-                    <div id="chorus"></div>-->
                 </div>
-                <div class="col-md-5">
+
+
+
+
+                <div class="col-md-3">
                     <form id="song-form">
-                     <input type="number" id="song_id">
-                    <button type="submit">Get Details</button>
+                        <h2>New Song</h2>
+                        <input class="input-group" type="number" id="song_id" placeholder="Enter Song ID#">
+                        <button class="input-group btn btn-primary mybtn" type="submit">Enter Song Info</button>
                     </form>
+
+                    <table class="table">
+                        <tr>
+                            <td>Song Title</td>
+                            <td id="title"></td>
+                        </tr>
+                        <tr>
+                            <td>Song Writer</td>
+                            <td id="song_writer"></td>
+                        </tr>
+                        <tr>
+                            <td>tempo</td>
+                            <td id="tempo"></td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td id="root_key"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <form id="song-form">
+                        <h2>Start New Song</h2>
+                        <input class="input-group" type="text" id="newSong_title" placeholder="Enter New Song Title">
+                        <input class="input-group" type="text" id="newSong_writer" placeholder="Enter New Song Writer">
+                        <input class="input-group" type="text" id="newSong_tempo" placeholder="Enter New Song Tempo (2/4, 3/4 etc.">
+                        <input class="input-group" type="text" id="newSong_key" placeholder="Enter New Song Key (A, D, G#, Eb etc.">
+                        <button class="input-group btn btn-primary mybtn" type="submit">Enter Song Info</button>
+                    </form>
+
+
                 </div>
             </div>
+
+
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-md-3">
+                    <input type="int" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse</button><br>
+                    <div id="verse"></div>
+
+                    <button class="input-group btn btn-primary mybtn" id="getChorus">Chorus</button>
+                    <div id="chorus"></div>
+                </div>   
+
+                <div class="col-md-7">
+
+                </div>
+
+            </div>
         </div>
+
+
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
