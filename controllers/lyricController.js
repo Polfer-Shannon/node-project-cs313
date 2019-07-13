@@ -29,12 +29,12 @@ function getVerse(req,res){
   }
 
 function getVerseByNumber(req, res) {
-	// TODO: check if book id or if topic id, and call the appropriate function...
+	// TODO: check if verse id and call the appropriate function...
 
 	var theVerse = req.query.theVerse;
 
 	lyricModel.verseByNumber(theVerse, function(error, results) {
-		res.json(results);
+		res.status(200).json(results);
 	});
 
 
@@ -46,10 +46,18 @@ function getChorus(req,res){
     })
   }
 
+
+function getSongList(req,res){
+    lyricModel.getSongListFromDb(function(err, result){
+        res.status(200).json(result);
+    })
+  }
+
 module.exports = {
     getSong: getSong,
     getVerse: getVerse,
     getVerseByNumber: getVerseByNumber,
-    getChorus: getChorus
+    getChorus: getChorus,
+    getSongList: getSongList
     
 };

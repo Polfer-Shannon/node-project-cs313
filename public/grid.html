@@ -15,7 +15,7 @@
             <p>Imitation is the Highest Form of Flattery</p>
         </header>
 
-         <div class="container-fluid">
+        <div class="container-fluid">
             <div class="row">
 
                 <div class="col-sm-2 songList">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-sm-10">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3" style="background-color:lightblue;">
                             <form id="song-form">
                                 <h2>Inspiration Song</h2>
                                 <input class="input-group" type="number" id="song_id" placeholder="Enter Song ID#">
@@ -112,7 +112,7 @@
 
                     <div class="row">
                         
-                        <div class="col-md-4">
+                        <div class="col-md-5" style="background-color:sandybrown;">
                             <!--                    <button class="input-group btn btn-primary mybtn" id="getVerse">Get All Verses</button>-->
                             <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>
                             <div id="verse"></div>
@@ -121,18 +121,8 @@
                             <div id="chorus"></div>
                         </div>   
 
-                        <div class="col-md-8">
-                            <form id="lyricForm" class="form-group">
-                                <label for="newLyrics">Write a New Verse or Chorus</label> 
-                                <textarea class="input-group" id="newLyrics" rows="10">
-                                    
-                                </textarea>
-                                <div class="row">
-                                <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addVerse">Add a Verse</button>
-                                
-                                <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addChorus">Add a Chorus</button>
-                                </div>
-                            </form>
+                        <div class="col-md-7" style="background-color:lightblue;">
+
                         </div>
                     </div>
                 </div>
@@ -144,6 +134,32 @@
     
 </div>
 
+<!--        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-3" style="background-color:yellow;height:300px;"></div>
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-sm-4" style="height:150px;background-color:lightblue;"></div>
+                        <div class="col-sm-4" style="height:150px;background-color:blue;"></div>
+                        <div class="col-sm-4" style="height:150px;background-color:blueviolet;"></div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-sm-12" style="height:20px;background-color:pink;"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="height:130px;background-color:red;"></div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>-->
+
+
+
+
         <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -151,3 +167,4 @@
         <script src="lyrics.js"></script>
     </body>
 </html>
+

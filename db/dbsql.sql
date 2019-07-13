@@ -94,3 +94,6 @@ SELECT * From songs JOIN verses ON songs.id = verses.songs_id WHERE songs.id = 1
 
 
 SELECT v_lyrics FROM verses WHERE v_number = 2 AND songs_id = 1;
+
+INSERT INTO songs (title, song_writer, tempo, root_key)
+VALUES ('We Will Rock You', 'Brian May', '4/4', 'C');

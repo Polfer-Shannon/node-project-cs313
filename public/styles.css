@@ -25,6 +25,7 @@ border: #948c75;
 
 .mybtn:visited {
     background-color: #d9ceb2;
+    border: #d9ceb2;
 }
 
 h2 {
@@ -35,4 +36,18 @@ h2 {
     height: 1em;
     background-color: #d9ceb2;
     margin-bottom: 1em;
+}
+
+
+.foot {
+    background-color: #948c75;
+    color: #d9ceb2;
+    margin-top: 2em;
+}
+
+.lyric {
+    margin: 1em;
+}
+label{
+    font-weight: bold;
 }
