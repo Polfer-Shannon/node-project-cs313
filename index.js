@@ -19,12 +19,12 @@ app.set('view engine', 'ejs');
 
 
 app.get('/getSong', lyricController.getSong);
-//app.get('/getVerse/:id', lyricController.getVerse);
+app.get('/getVerse/:id', lyricController.getVerse);
 app.get('/getVerseByNumber', lyricController.getVerseByNumber);
 app.get('/getChorus/:id', lyricController.getChorus);
 app.get('/getNewSong', lyricController.getSong);
-app.post('/postNewSong', newSongInfo);
 app.get('/songList', lyricController.getSongList);
+app.post('/postNewSong', lyricController.newSongInfo);
 
 app.listen(app.get("port"), function(){
     console.log("listening ", app.get("port"));
@@ -33,14 +33,4 @@ app.listen(app.get("port"), function(){
 
 
 
-function newSongInfo(req, res){
-    var result = {success: false};
-    
-    const title = req.body.title;
-    const song_writer = req.body.song_writer;
-    const tempo = req.body.tempo;
-    const root_key = req.body.root_key;
-    console.log(title + ' ' + song_writer + ' ' + tempo + ' ' +  root_key)
-    
-    res.json(result);
-}
+

@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <form id="song-form">
+                            <form id="song-form3">
                                 <h2>Start New Song</h2>
                                 <input class="input-group" type="text" id="newSong_title" placeholder="Enter New Song Title">
                                 <input class="input-group" type="text" id="newSong_writer" placeholder="Enter New Song Writer">
@@ -103,7 +103,10 @@
                                 <input class="input-group" type="text" id="newSong_key" placeholder="Enter New Song Key (A, D, G#, Eb etc.">
                                 <button class="input-group btn btn-primary mybtn" type="submit">Enter Song Info</button>
                             </form>
-
+                            <div>
+                             <table class="table table-condensed table-striped table-bordered" id="tableNewSongInfo">
+                     </table>   
+                            </div>
 
                         </div>
                     </div>
@@ -113,8 +116,9 @@
                     <div class="row">
                         
                         <div class="col-md-4">
-                            <!--                    <button class="input-group btn btn-primary mybtn" id="getVerse">Get All Verses</button>-->
-                            <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>
+                            <button class="input-group btn btn-primary mybtn" id="getVerse">Get All Verses</button>
+<!--                            <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>-->
+<br>
                             <div id="verse"></div>
 
                             <button class="input-group btn btn-primary mybtn" id="getChorus">Get the Chorus</button>

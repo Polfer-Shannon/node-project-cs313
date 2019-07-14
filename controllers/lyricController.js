@@ -53,11 +53,28 @@ function getSongList(req,res){
     })
   }
 
+function newSongInfo(req, res){
+    var result = {success: false};
+    
+    const title = req.body.title;
+    const writer = req.body.writer;
+    const tempo = req.body.tempo;
+    const key = req.body.key;
+    console.log(title + ' ' + writer + ' ' + tempo + ' ' +  key);
+    
+    lyricModel.addNewSongToDb(title, writer, tempo, key, function (error, result){
+        res.json({result});
+    })
+    
+    
+}
+
 module.exports = {
     getSong: getSong,
     getVerse: getVerse,
     getVerseByNumber: getVerseByNumber,
     getChorus: getChorus,
-    getSongList: getSongList
+    getSongList: getSongList,
+    newSongInfo: newSongInfo
     
 };

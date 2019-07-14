@@ -74,7 +74,7 @@ function getChorusFromDb(id, callback) {
 
 function getSongListFromDb(callback) {
    
-    var sql = "SELECT title, id FROM songs";
+    var sql = "SELECT title, id FROM songs ORDER BY title";
 //    var params = [id];
     pool.query(sql, function (err, db_results) {
         if (err) {
@@ -92,10 +92,33 @@ function getSongListFromDb(callback) {
     });
 }
 
+function addNewSongToDb(title, writer, tempo, key, callback) {
+   console.log("Inserting " + title + " " + writer + " " + tempo + " " + key);
+
+   var sql2 = 'INSERT INTO songs (title, song_writer, tempo, root_key) VALUES ($1, $2, $3, $4)';
+
+   var params = [title, writer, tempo, key];
+
+   pool.query(sql2, params, function (err, db_results) {
+      if (err) {
+         throw err;
+      } else {
+         var results = {
+            success: true,
+            list: db_results.rows
+         };
+
+         callback(null, results);
+      }
+
+   });
+};
+
 module.exports = {
     getSongFromDb: getSongFromDb,
     getVerseFromDb: getVerseFromDb,
     verseByNumber: verseByNumber,
     getChorusFromDb: getChorusFromDb,
-    getSongListFromDb: getSongListFromDb
+    getSongListFromDb: getSongListFromDb,
+    addNewSongToDb: addNewSongToDb
 }
