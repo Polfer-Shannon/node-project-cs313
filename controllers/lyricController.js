@@ -28,17 +28,17 @@ function getVerse(req,res){
     })
   }
 
-function getVerseByNumber(req, res) {
-	// TODO: check if verse id and call the appropriate function...
-
-	var theVerse = req.query.theVerse;
-
-	lyricModel.verseByNumber(theVerse, function(error, results) {
-		res.status(200).json(results);
-	});
-
-
-}
+//function getVerseByNumber(req, res) {
+//	// TODO: check if verse id and call the appropriate function...
+//
+//	var theVerse = req.query.theVerse;
+//
+//	lyricModel.verseByNumber(theVerse, function(error, results) {
+//		res.status(200).json(results);
+//	});
+//
+//
+//}
 
 function getChorus(req,res){
     lyricModel.getChorusFromDb(req.params.id, function(err, result){
@@ -69,12 +69,30 @@ function newSongInfo(req, res){
     
 }
 
+function newVerseLyrics(req, res){
+    var result = {success: false};
+    
+    const id = req.body.id;
+    const verse = req.body.v_lyrics;
+    const verse_number = req.body.v_number;
+    
+    
+    console.log(verse);
+    
+    lyricModel.addNewVerseToDb(id, verse, verse_number, function (error, result){
+        res.json({result});
+    })
+    
+    
+}
+
 module.exports = {
     getSong: getSong,
     getVerse: getVerse,
-    getVerseByNumber: getVerseByNumber,
+//    getVerseByNumber: getVerseByNumber,
     getChorus: getChorus,
     getSongList: getSongList,
-    newSongInfo: newSongInfo
+    newSongInfo: newSongInfo,
+    newVerseLyrics: newVerseLyrics
     
 };

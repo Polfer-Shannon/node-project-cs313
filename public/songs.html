@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>SONG</title>
+        <title>Write a Song</title>
         <meta charset="UTF-8">
         <meta name ="author" content="Shannon Polfer">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +15,10 @@
             <p>Imitation is the Highest Form of Flattery</p>
         </header>
 
-         <div class="container-fluid">
+        <div class="container-fluid">
             <div class="row">
 
-                <div class="col-sm-2 songList">
+                <div class="col-sm-2 songList overflow-auto">
                     <h2>Song List</h2>
                     <button class="input-group btn btn-primary mybtn" onclick="songList()">Refresh Song List</button>
 
@@ -34,124 +34,132 @@
                         </tr>
                     </table>
                 </div>
-                <div class="col-sm-10">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <form id="song-form">
-                                <h2>Inspiration Song</h2>
-                                <input class="input-group" type="number" id="song_id" placeholder="Enter Song ID#">
-                                <button class="input-group btn btn-primary mybtn" type="submit">Get Song Info</button>
-                            </form>
+                <div class="col-md-1"></div>
+                <!--                <div class="col-sm-12">-->
+                <!--                    <div class="row">-->
+                <div class="col-md-2">
+                    <form id="song-form">
+                        <h2>Inspiration</h2>
+                        <input class="input-group" type="number" id="song_id" placeholder="Enter Song ID#">
+                        <button class="input-group btn btn-primary mybtn" type="submit">Get Song Info</button>
+                    </form>
 
-                            <table class="table">
-                                <tr>
-                                    <td>Song Title</td>
-                                    <td id="title"></td>
-                                </tr>
-                                <tr>
-                                    <td>Song Writer</td>
-                                    <td id="song_writer"></td>
-                                </tr>
-                                <tr>
-                                    <td>tempo</td>
-                                    <td id="tempo"></td>
-                                </tr>
-                                <tr>
-                                    <td>Key</td>
-                                    <td id="root_key"></td>
-                                </tr>
-                            </table>
+                    <table class="table">
+                        <tr>
+                            <td>Song Title</td>
+                            <td id="title"></td>
+                        </tr>
+                        <tr>
+                            <td>Song Writer</td>
+                            <td id="song_writer"></td>
+                        </tr>
+                        <tr>
+                            <td>tempo</td>
+                            <td id="tempo"></td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td id="root_key"></td>
+                        </tr>
+                    </table>
 
-                        </div>
-
-
-
-
-                        <div class="col-md-3">
-                            <form id="song-form2">
-                                <h2>New Song</h2>
-                                <input class="input-group" type="number" id="song_id2" placeholder="Enter Song ID#">
-                                <button class="input-group btn btn-primary mybtn" type="submit">Get Song Info</button>
-                            </form>
-
-                            <table class="table">
-                                <tr>
-                                    <td>Song Title</td>
-                                    <td id="title2"></td>
-                                </tr>
-                                <tr>
-                                    <td>Song Writer</td>
-                                    <td id="song_writer2"></td>
-                                </tr>
-                                <tr>
-                                    <td>tempo</td>
-                                    <td id="tempo2"></td>
-                                </tr>
-                                <tr>
-                                    <td>Key</td>
-                                    <td id="root_key2"></td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div class="col-md-6">
-                            <form id="song-form3">
-                                <h2>Start New Song</h2>
-                                <input class="input-group" type="text" id="newSong_title" placeholder="Enter New Song Title">
-                                <input class="input-group" type="text" id="newSong_writer" placeholder="Enter New Song Writer">
-                                <input class="input-group" type="text" id="newSong_tempo" placeholder="Enter New Song Tempo (2/4, 3/4 etc.">
-                                <input class="input-group" type="text" id="newSong_key" placeholder="Enter New Song Key (A, D, G#, Eb etc.">
-                                <button class="input-group btn btn-primary mybtn" type="submit">Enter Song Info</button>
-                            </form>
-                            <div>
-                             <table class="table table-condensed table-striped table-bordered" id="tableNewSongInfo">
-                     </table>   
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="row line"></div>
-
-                    <div class="row">
-                        
-                        <div class="col-md-4">
-                            <button class="input-group btn btn-primary mybtn" id="getVerse">Get All Verses</button>
-<!--                            <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>-->
-<br>
-                            <div id="verse"></div>
-
-                            <button class="input-group btn btn-primary mybtn" id="getChorus">Get the Chorus</button>
-                            <div id="chorus"></div>
-                        </div>   
-
-                        <div class="col-md-8">
-                            <form id="lyricForm" class="form-group">
-                                <label for="newLyrics">Write a New Verse or Chorus</label> 
-                                <textarea class="input-group" id="newLyrics" rows="10">
-                                    
-                                </textarea>
-                                <div class="row">
-                                <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addVerse">Add a Verse</button>
-                                
-                                <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addChorus">Add a Chorus</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <form id="song-form3">
+                        <h2>Start New Song</h2>
+                        <input class="input-group" type="text" id="newSong_title" placeholder="Enter New Song Title">
+                        <input class="input-group" type="text" id="newSong_writer" placeholder="Enter New Song Writer">
+                        <input class="input-group" type="text" id="newSong_tempo" placeholder="Enter New Song Tempo (2/4, 3/4 etc.">
+                        <input class="input-group" type="text" id="newSong_key" placeholder="Enter New Song Key (A, D, G#, Eb etc.">
+                        <button class="input-group btn btn-primary mybtn" type="submit">Enter Song Info</button>
+                    </form>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <form id="song-form2">
+                        <h2>New Song</h2>
+                        <input class="input-group" type="number" id="song_id2" placeholder="Enter Song ID#">
+                        <button class="input-group btn btn-primary mybtn" type="submit">Get Song Info</button>
+                    </form>
+
+                    <table class="table">
+                        <tr>
+                            <td>Song Title</td>
+                            <td id="title2"></td>
+                        </tr>
+                        <tr>
+                            <td>Song Writer</td>
+                            <td id="song_writer2"></td>
+                        </tr>
+                        <tr>
+                            <td>tempo</td>
+                            <td id="tempo2"></td>
+                        </tr>
+                        <tr>
+                            <td>Key</td>
+                            <td id="root_key2"></td>
+                        </tr>
+                    </table>
+                </div>
+                <!--                            <div col-md-3>
+                                             <table class="table table-condensed table-striped table-bordered" id="tableNewSongInfo">
+                                     </table>   
+                                            </div>-->
+
+
+            </div>
+        
+        <div class="row line"></div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <button class="input-group btn btn-primary mybtn" id="getVerse">Get All Verses</button>
+                <!--                            <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>-->
+                <br>
+                <div id="verse"></div>
+
+                <button class="input-group btn btn-primary mybtn" id="getChorus">Get the Chorus</button>
+                <div id="chorus"></div>
+            </div>   
+
+            <div class="col-md-6">
+                <form id="lyricForm" class="form-group">
+                    <input class="input-group" type="text" id="newSong_id" placeholder="Enter New Song ID#">
+                    <input class="input-group" type="text" id="newVerseNumber" placeholder="If this is a verse, enter verse #">
+                    <label for="newLyrics">Write a New Verse or Chorus</label> 
+                    <textarea class="input-group" id="newLyrics" rows="10"></textarea>
+                    <div class="row">
+                        <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addVerse" type="submit">Add a Verse</button>
+
+                        <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addChorus" type="submit">Add a Chorus</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <button class="input-group btn btn-primary mybtn" id="getVerse2">Get All Verses</button>
+                <!--                            <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>-->
+                <br>
+                <div id="verse2"></div>
+
+                <button class="input-group btn btn-primary mybtn" id="getChorus2">Get the Chorus</button>
+                <div id="chorus2"></div>
             </div>
         </div>
+        <!--                </div>-->
+   
+    <!--        </div>-->
 
-<div class="card-footer text-center foot">
-    <p>&copy; Shannon Polfer, All rights reserved.</p>
-    
-</div>
+    <div class="card-footer text-center foot">
+        <p>&copy; Shannon Polfer, All rights reserved.</p>
 
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-        <script src="lyrics.js"></script>
-    </body>
+    </div>
+ </div>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="lyrics.js"></script>
+</body>
 </html>

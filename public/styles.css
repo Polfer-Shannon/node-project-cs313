@@ -17,15 +17,18 @@ border: #948c75;
 
 .mybtn:hover {
     background-color: #d9ceb2;
+    border-color: #d9ceb2;
 }
 
 .mybtn:active {
     background-color: #d9ceb2;
+    border-color: #d9ceb2;
 }
 
 .mybtn:visited {
     background-color: #d9ceb2;
-    border: #d9ceb2;
+    border-color: #d9ceb2;
+    
 }
 
 h2 {
@@ -50,4 +53,8 @@ h2 {
 }
 label{
     font-weight: bold;
+}
+
+.songList{
+    height: 20em;
 }
