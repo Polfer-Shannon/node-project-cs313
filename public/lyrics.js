@@ -124,15 +124,16 @@ $(document).ready(function () {
     });
     
         $("#lyricForm").on('submit', function (event) {
+            
         event.preventDefault();
-        const id = $("#newSong_id").val();
-        const verse = $("#newVerse").val();
-        const verse_number = $("#newVerseNumber")
+        const v_lyrics = $("#newVerse").val();
+        const v_number = $("#newVerseNumber").val();
+        const songs_id = $("#newSong_id").val();
        
-        console.log(verse);
-        $.post('/postNewVerse', {id: id, verse: verse, verse_number: verse_number}, function (data) 
+        console.log("hello" + v_lyrics + " " + v_number + " " + songs_id);
+        $.post('/postNewVerse', {v_lyrics: v_lyrics, v_number: v_number, songs_id: songs_id,}, function (data) 
         {
-            console.log("Back from the server with: " + verse);
+            console.log("Back from the server with: " + v_lyrics);
 
         });
     });

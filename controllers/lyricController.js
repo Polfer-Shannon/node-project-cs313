@@ -72,14 +72,13 @@ function newSongInfo(req, res){
 function newVerseLyrics(req, res){
     var result = {success: false};
     
-    const id = req.body.id;
-    const verse = req.body.v_lyrics;
-    const verse_number = req.body.v_number;
+    const v_lyrics = req.body.v_lyrics;
+    const v_number = req.body.v_number;
+    const songs_id = req.body.songs_id;
     
+    console.log("Snowflake" + " " + v_lyrics, v_number, songs_id);
     
-    console.log(verse);
-    
-    lyricModel.addNewVerseToDb(id, verse, verse_number, function (error, result){
+    lyricModel.addNewVerseToDb(v_lyrics, v_number, songs_id, function (error, result){
         res.json({result});
     })
     

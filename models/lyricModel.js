@@ -114,14 +114,14 @@ function addNewSongToDb(title, writer, tempo, key, callback) {
    });
 };
 
-function addNewVerseToDb(id, verse, verse_number, callback) {
-   console.log("Inserting " + verse);
+function addNewVerseToDb(v_lyrics, v_number, songs_id, callback) {
+   console.log("Inserting " + v_lyrics + v_number + songs_id);
 
-   var sql3 = 'INSERT INTO verses (v_lyrics, v_number) VALUES ($2, $3) WHERE songs_id=$1::int';
+   var sql3 = 'INSERT INTO verses (v_lyrics, v_number, songs_id) VALUES ($1, $2, $3)';
 
-   var params = [id, verse, verse_number];
+   var params3 = [v_lyrics, v_number, songs_id];
 
-   pool.query(sql3, params, function (err, db_results) {
+   pool.query(sql3, params3, function (err, db_results) {
       if (err) {
          throw err;
       } else {
