@@ -60,6 +60,7 @@ function newSongInfo(req, res){
     const writer = req.body.writer;
     const tempo = req.body.tempo;
     const key = req.body.key;
+    const id = req.body.id;
     console.log(title + ' ' + writer + ' ' + tempo + ' ' +  key);
     
     lyricModel.addNewSongToDb(title, writer, tempo, key, function (error, result){
@@ -85,6 +86,21 @@ function newVerseLyrics(req, res){
     
 }
 
+function newChorusLyrics(req, res){
+    var result = {success: false};
+    
+    const c_lyrics = req.body.c_lyrics;
+    const songs_id = req.body.songs_id;
+    
+    console.log("Snowflake" + " " + c_lyrics, songs_id);
+    
+    lyricModel.addNewChorusToDb(c_lyrics, songs_id, function (error, result){
+        res.json({result});
+    })
+    
+    
+}
+
 module.exports = {
     getSong: getSong,
     getVerse: getVerse,
@@ -92,6 +108,7 @@ module.exports = {
     getChorus: getChorus,
     getSongList: getSongList,
     newSongInfo: newSongInfo,
-    newVerseLyrics: newVerseLyrics
+    newVerseLyrics: newVerseLyrics,
+    newChorusLyrics: newChorusLyrics
     
 };

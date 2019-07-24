@@ -10,13 +10,13 @@ CREATE TABLE verses (
 id SERIAL PRIMARY KEY,
 v_lyrics TEXT,
 v_number INT,
-songs_id INT REFERENCES songs(id)
+songs_id INT REFERENCES songs(id) ON DELETE CASCADE
 );
 
 CREATE TABLE chorus (
 id SERIAL PRIMARY KEY,
 c_lyrics TEXT,
-songs_id INT REFERENCES songs(id)
+songs_id INT REFERENCES songs(id) ON DELETE CASCADE
 );
 
 CREATE TABLE bridge (

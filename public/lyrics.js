@@ -66,8 +66,8 @@ $(document).ready(function () {
         }, 'json'
                 );
     });
-    
-        $("#getVerse2").on("click", function () {
+
+    $("#getVerse2").on("click", function () {
 
         const song_id = $("#song_id2").val();
         $.get('/getVerse/' + song_id, {
@@ -107,7 +107,7 @@ $(document).ready(function () {
         }, 'json'
                 );
     });
-    
+
     $("#song-form3").on('submit', function (event) {
         event.preventDefault();
         const title = $("#newSong_title").val();
@@ -115,29 +115,43 @@ $(document).ready(function () {
         const tempo = $("#newSong_tempo").val();
         const key = $("#newSong_key").val();
         console.log(title, writer, tempo, key);
-        $.post('/postNewSong', {title: title, writer: writer, tempo: tempo, key: key,}, function (data) 
+        $.post('/postNewSong', {title: title, writer: writer, tempo: tempo, key: key, }, function (data)
         {
             console.log("Back from the server with: " + title + " " + writer + "" + tempo + "" + key);
 //            console.log(data);
-//            $("#tableNewSongInfo").append("<tr><td>" + title + "</td></tr><tr><td>" + writer + "</td></tr><tr><td>" + tempo + "</td></tr><tr><td>" + key + "</td></tr>");
+            $("#tableNewSongInfo").append("<tr><td>" + title + "</td></tr><tr><td>" + writer + "</td></tr><tr><td>" + tempo + "</td></tr><tr><td>" + key + "</td></tr>");
         });
     });
-    
-        $("#lyricForm").on('submit', function (event) {
-            
+
+    $("#lyricForm").on('submit', function (event) {
+
         event.preventDefault();
         const v_lyrics = $("#newVerse").val();
         const v_number = $("#newVerseNumber").val();
         const songs_id = $("#newSong_id").val();
-       
+
         console.log("hello" + v_lyrics + " " + v_number + " " + songs_id);
-        $.post('/postNewVerse', {v_lyrics: v_lyrics, v_number: v_number, songs_id: songs_id,}, function (data) 
+        $.post('/postNewVerse', {v_lyrics: v_lyrics, v_number: v_number, songs_id: songs_id, }, function (data)
         {
             console.log("Back from the server with: " + v_lyrics);
 
         });
     });
-    
+
+    $("#chorusForm").on('submit', function (event) {
+
+        event.preventDefault();
+        const c_lyrics = $("#newChorus").val();
+        var songs_id = $("#newSong_id2").val();
+
+        console.log("hello" + c_lyrics + " "  + songs_id);
+        $.post('/postNewChorus', {c_lyrics: c_lyrics, songs_id: songs_id, }, function (data)
+        {
+            console.log("Back from the server with: " + c_lyrics);
+
+        });
+    });
+
 });
 
 
@@ -164,9 +178,11 @@ function songList() {
             var songs = data.list[i];
 //        console.log("title= " + songs.title + " " + "id= " + songs.id);
 
-
-            $("#theSongs").append("<tr><td>" + songs.title + "</td>" + "<td>" + songs.id + "</td></tr>");
+          $("#theSongs").append("<tr><td>" + songs.title + "</td>" + "<td>" + songs.id + "</td></tr>");
+          
+          
         }
+        
     });
 }
     

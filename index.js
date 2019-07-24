@@ -26,6 +26,7 @@ app.get('/getNewSong', lyricController.getSong);
 app.get('/songList', lyricController.getSongList);
 app.post('/postNewSong', lyricController.newSongInfo);
 app.post('/postNewVerse', lyricController.newVerseLyrics);
+app.post('/postNewChorus', lyricController.newChorusLyrics);
 
 app.listen(app.get("port"), function(){
     console.log("listening ", app.get("port"));

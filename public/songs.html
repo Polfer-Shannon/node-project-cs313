@@ -20,7 +20,7 @@
 
                 <div class="col-sm-2 songList overflow-auto">
                     <h2>Song List</h2>
-                    <button class="input-group btn btn-primary mybtn" onclick="songList()">Refresh Song List</button>
+                    <button class="input-group btn btn-primary mybtn" onclick="songList()">Display Song List</button>
 
                     <table class="table table-condensed table-striped table-bordered" id="theSongs">         
                         <tr>
@@ -64,10 +64,12 @@
                     </table>
 
                 </div>
-                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    
+                </div>
                 <div class="col-md-3">
                     <form id="song-form3">
-                        <h2>Start New Song</h2>
+                        <h2>Add a New Song</h2>
                         <input class="input-group" type="text" id="newSong_title" placeholder="Enter New Song Title">
                         <input class="input-group" type="text" id="newSong_writer" placeholder="Enter New Song Writer">
                         <input class="input-group" type="text" id="newSong_tempo" placeholder="Enter New Song Tempo (2/4, 3/4 etc.">
@@ -102,7 +104,7 @@
                         </tr>
                     </table>
                 </div>
-                <!--                            <div col-md-3>
+<!--                                            <div col-md-3>
                                              <table class="table table-condensed table-striped table-bordered" id="tableNewSongInfo">
                                      </table>   
                                             </div>-->
@@ -115,35 +117,43 @@
         <div class="row">
 
             <div class="col-md-3">
-                <button class="input-group btn btn-primary mybtn" id="getVerse">Get All Verses</button>
+                <button class="input-group btn btn-primary mybtn" id="getVerse">View Verses for Inspiration</button>
                 <!--                            <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>-->
                 <br>
                 <div id="verse"></div>
 
-                <button class="input-group btn btn-primary mybtn" id="getChorus">Get the Chorus</button>
+                <button class="input-group btn btn-primary mybtn" id="getChorus">View Chorus for Inspiration</button>
                 <div id="chorus"></div>
             </div>   
 
             <div class="col-md-6">
                 <form id="lyricForm" class="form-group">
                     <input class="input-group" type="text" id="newSong_id" placeholder="Enter New Song ID#">
-                    <input class="input-group" type="text" id="newVerseNumber" placeholder="If this is a verse, enter verse #">
-                    <label for="newLyrics">Write a New Verse or Chorus</label> 
-                    <textarea class="input-group" id="newVerse" rows="10"></textarea>
+                    <input class="input-group" type="text" id="newVerseNumber" placeholder="Enter verse #">
+                    <label for="newLyrics">Write a New Verse</label> 
+                    <textarea class="input-group" id="newVerse" rows="5"></textarea>
                     <div class="row">
                         <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addVerse" type="submit">Add a Verse</button>
 
+                    </div>
+                </form>
+                <form id="chorusForm" class="form-group">
+                    <input class="input-group" type="text" id="newSong_id2" placeholder="Enter New Song ID#">
+                    <label for="newChorus">Write a New Chorus</label> 
+                    <textarea class="input-group" id="newChorus" rows="5"></textarea>
+                    <div class="row">
+                        
                         <button class="input-group btn btn-primary mybtn lyric col-sm-4" id="addChorus" type="submit">Add a Chorus</button>
                     </div>
                 </form>
             </div>
             <div class="col-md-3">
-                <button class="input-group btn btn-primary mybtn" id="getVerse2">Get All Verses</button>
+                <button class="input-group btn btn-primary mybtn" id="getVerse2">View New Verses</button>
                 <!--                            <input type="text" class="input-group" id="theVerse" placeholder="Enter verse#/click. Repeat."> <button class="btn btn-primary mybtn input-group" onclick="getTheVerse()">Get a Verse One at a Time</button><br>-->
                 <br>
                 <div id="verse2"></div>
 
-                <button class="input-group btn btn-primary mybtn" id="getChorus2">Get the Chorus</button>
+                <button class="input-group btn btn-primary mybtn" id="getChorus2">View New Chorus</button>
                 <div id="chorus2"></div>
             </div>
         </div>

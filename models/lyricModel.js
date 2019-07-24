@@ -136,6 +136,28 @@ function addNewVerseToDb(v_lyrics, v_number, songs_id, callback) {
    });
 };
 
+function addNewChorusToDb(c_lyrics, songs_id, callback) {
+   console.log("Inserting " + c_lyrics + songs_id);
+
+   var sql3 = 'INSERT INTO chorus (c_lyrics, songs_id) VALUES ($1, $2)';
+
+   var params4 = [c_lyrics, songs_id];
+
+   pool.query(sql3, params4, function (err, db_results) {
+      if (err) {
+         throw err;
+      } else {
+         var results = {
+            success: true,
+            list: db_results.rows
+         };
+
+         callback(null, results);
+      }
+
+   });
+};
+
 module.exports = {
     getSongFromDb: getSongFromDb,
     getVerseFromDb: getVerseFromDb,
@@ -143,5 +165,6 @@ module.exports = {
     getChorusFromDb: getChorusFromDb,
     getSongListFromDb: getSongListFromDb,
     addNewSongToDb: addNewSongToDb,
-    addNewVerseToDb: addNewVerseToDb
+    addNewVerseToDb: addNewVerseToDb,
+    addNewChorusToDb: addNewChorusToDb
 }
